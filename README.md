@@ -4,7 +4,7 @@
 Spring Boot starterlar  ihtiyaç duyduğumuz kabiliyetleri pom.xml’e ekleyerek kullanabileceğimiz bağımlılık tanımlarıdır.   
 •	 Spring Boot Devtools, kod değişiklikleri yapıp kaydettikten sonra uygulamayı yeniden başlatmadan değişikliklerin otomatik olarak uygulanmasını sağlar. (normalde durdurup uygulamayı tekrar çalıştırarak görebiliriz.)  
 •	 Spring Boot Actutator, Spring Boot uygulamasını yönetmek ve izlemek için kullanılan bir toldur. Uygulamanın rum timeda bir çok farklı veriyi toplar ve bunları bir REST API ile erişilebilir hale getirir. spring-boot-starter-actuator kütüphanesini pom.xml’e ekledikten sonra **localhost:8080/actuator** adresine gidersek  self, health ve health-path bilgilerine ulaşabiliriz. Properties dosyasına;       
-				<span style="color: #ff0000;">management.endpoints.web.expose=* (or health,info) <span>
+				*management.endpoints.web.expose= * (or health,info)*
 eklersek bütün endpointler gelir. 
 
 ## Properties Dosyası 
@@ -15,7 +15,7 @@ logging.level.org.springframework=debug
 				spring.profiles.active=prop
 tanımlaması yapılmalı. Bu satır ile spring bootun hangi profille çalışacağını belirlemiş oluruz.   
 •	Endpointleri (actuator) görebilmek için;  
-				management.endpoints.web.expose=*
+				*management.endpoints.web.expose=* *  
 				management.endpoints.web.expose=health,info
 
 ## Annotations
@@ -39,3 +39,6 @@ public class UserService {
 
 }
 ```
+
+## Log
+ Spring Boot’da default olarak log için LogBack kütüphanesi kullanılır. Application.properties dosyasında modu seçimi yaparak log kontrollerini sağlayabiliriz. “**spring.profile.active=prop**, test, dev” aktif profillleri belirlemek için kullanılır. Profilller, uygulama konfigürasyonunu ve davranışını farklı ortamlara (geliştirme, test, üretim vb.) göre özelleştirmemizi sağlar. Properties ya da xml dosyalarında belirtilir. 
