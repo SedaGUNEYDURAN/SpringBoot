@@ -21,10 +21,13 @@ tanımlaması yapılmalı. Bu satır ile spring bootun hangi profille çalışac
 ## Annotations
 
 **@RequestMapping** annotation’ı, web uygulamamızın farklı bölümlerine karşılık gelen URL yollarını controller sınıfları ve yöntemleri ile ilişkilendirmek için kullanılır. Yani web tarayıcımızdan veya başka bir client’tan hangi URL’e erişildiğinde hangi controller’ın çalışacağını belirtir. Örneğin; @RequestMapping("/couses") olarak belirttiğimiz controller tarayıcıda  http://localhost:8080/courses adresinde çalışır.   
-**@ConfigurationProperties** annotation’ı, Spring Boot uygulamasında dış kaynaklarda(properties dosyaları, ortam değişkenleri vb) gelen konfigürasyon değerlerini Java nesnelerine bağlamak için kullanılır. Sınıftaki fieldlar konfigürasyon keyleri ile ilişkilendirilir. @ConfigurationProperties(prefix="a-service") annotation’ı “a-service” ön eki ile başlayan konfigürasyon özelliklerini bir java classına bağlamak için kullanılır. Class’daki fieldlar, konfigürasyon keyleri ile eşleştirilir. Örneğin; classda “private String userName” fieldı bulunuyor. Bu prooerties dosyasında “a-service.userName” key’ine karşılık gelir.   
+**@ConfigurationProperties** annotation’ı, Spring Boot uygulamasında dış kaynaklarda(properties dosyaları, ortam değişkenleri vb) gelen konfigürasyon değerlerini Java nesnelerine bağlamak için kullanılır. Sınıftaki fieldlar konfigürasyon keyleri ile ilişkilendirilir.   
+**@ConfigurationProperties(prefix="a-service")** annotation’ı “a-service” ön eki ile başlayan konfigürasyon özelliklerini bir java classına bağlamak için kullanılır. Class’daki fieldlar, konfigürasyon keyleri ile eşleştirilir. Örneğin; classda “private String userName” fieldı bulunuyor. Bu prooerties dosyasında “a-service.userName” key’ine karşılık gelir.   
 
 **@Component** annotation’ı, bir classa eklenerek o classı bir Spring bean olarak işaretlemek için kullanılır. Bu, Spring’e bu sınıfın bir bean olarak yönetilmesi ve ihtiyaç duyulduğunda otomatik olarak oluşturulması gerektiğini söyler. (Spring beanler Spring frameworkünün temel yapıtaşlarıdır. Otomatik yönetim, bağımlılık enjeksiyonu ve streotype annotationlar sayesinde Spring beanler kodumuzu daha temiz, okunabilir ve bakımı kolay hale getirir.)      
 **@Autowired** annotation’ı, bir beanin diğer beanlere olan bağımlılıklarını otomatik olarak enjekte etmek için kullanılır. Bu beanlerin birbirleriyle nasıl etkileşime gireceğini kodda açıkça belirtmemize gerek kalmadan springin otomatik olarak yapmasını sağlar. Aşağıdaki örnekte, UserService sınıfı @Service annotation'ı ile işaretlenmiştir. userRepository field'ı ise @Autowired annotation'ı ile işaretlenmiştir. Bu, Spring'e UserService bean'inin UserRepository bean'ine bağımlı olduğunu ve userRepository field'ına otomatik olarak enjekte etmesini söyler.  
+
+```java
 @Service
 public class UserService {
 
@@ -34,4 +37,4 @@ public class UserService {
     // Kullanıcılarla ilgili iş mantığı kodları
 
 }
-
+```
